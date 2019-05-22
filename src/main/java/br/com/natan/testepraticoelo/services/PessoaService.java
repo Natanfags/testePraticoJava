@@ -1,6 +1,7 @@
 package br.com.natan.testepraticoelo.services;
 
 import br.com.natan.testepraticoelo.domain.Pessoa;
+import br.com.natan.testepraticoelo.dto.PessoaDto;
 import br.com.natan.testepraticoelo.repositories.PessoaRepository;
 import br.com.natan.testepraticoelo.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,10 @@ public class PessoaService {
     public Page<Pessoa> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
         PageRequest pageRequest = PageRequest.of(page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
         return repo.findAll(pageRequest);
+    }
+
+    public Pessoa fromDto(PessoaDto objDto) {
+        return new Pessoa(objDto.getId(), objDto.getNome());
     }
 
 }

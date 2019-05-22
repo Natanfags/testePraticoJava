@@ -24,6 +24,11 @@ public class Pessoa implements Serializable {
 
     }
 
+    public Pessoa(Integer id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
     public Pessoa(Integer id, CodigoPessoa codigo, String nome, String cpf) {
         this.id = id;
         this.codigo = codigo.getCod();
