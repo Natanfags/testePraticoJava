@@ -25,4 +25,9 @@ public class PessoaService {
         return repo.save(obj);
     }
 
+    public Pessoa update(Pessoa obj) {
+        find(obj.getId());
+        return repo.save(obj);
+    }
+
 }
