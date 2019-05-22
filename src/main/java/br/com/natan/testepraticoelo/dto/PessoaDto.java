@@ -19,11 +19,11 @@ public class PessoaDto implements Serializable {
         nome = obj.getNome();
     }
 
-    public Integer getCodigo() {
+    public Integer getId() {
         return id;
     }
 
-    public void setCodigo(Integer codigo) {
+    public void setId(Integer codigo) {
         this.id = codigo;
     }
 

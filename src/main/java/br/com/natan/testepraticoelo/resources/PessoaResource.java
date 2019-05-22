@@ -4,6 +4,7 @@ import br.com.natan.testepraticoelo.domain.Pessoa;
 import br.com.natan.testepraticoelo.dto.PessoaDto;
 import br.com.natan.testepraticoelo.services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -52,6 +53,18 @@ public class PessoaResource {
 
         List<Pessoa> list = service.findAll();
         List<PessoaDto> listDto = list.stream().map(obj -> new PessoaDto(obj)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDto);
+    }
+
+    @RequestMapping(value = "/page", method = RequestMethod.GET)
+    public ResponseEntity<Page<PessoaDto>> findPage(
+            @RequestParam(value = "page", defaultValue = "0") Integer page,
+            @RequestParam(value = "linesPerPage", defaultValue = "24") Integer linesPerPage,
+            @RequestParam(value = "orderBy", defaultValue = "nome") String orderBy,
+            @RequestParam(value = "direction", defaultValue = "ASC") String direction) {
+
+        Page<Pessoa> list = service.findPage(page, linesPerPage, orderBy, direction);
+        Page<PessoaDto> listDto = list.map(obj -> new PessoaDto(obj));
         return ResponseEntity.ok().body(listDto);
     }
 
