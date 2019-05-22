@@ -6,6 +6,7 @@ import br.com.natan.testepraticoelo.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,9 +31,13 @@ public class PessoaService {
         return repo.save(obj);
     }
 
-    public void delete(Integer id){
+    public void delete(Integer id) {
         find(id);
         repo.deleteById(id);
+    }
+
+    public List<Pessoa> findAll() {
+        return repo.findAll();
     }
 
 }
