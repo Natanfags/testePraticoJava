@@ -27,9 +27,7 @@ public class TestePraticoEloApplication implements CommandLineRunner {
         Pessoa pessoa2 = new Pessoa(null, CodigoPessoa.PESSOAJURIDICA, "José Luis", "22222222222-41");
         Pessoa pessoa3 = new Pessoa(null, CodigoPessoa.PESSOAFISICA, "João Antonio", "3333333333-41");
 
-        pessoaRepository.saveAll(Arrays.asList(pessoa1));
-        pessoaRepository.saveAll(Arrays.asList(pessoa2));
-        pessoaRepository.saveAll(Arrays.asList(pessoa3));
+        pessoaRepository.saveAll(Arrays.asList(pessoa1, pessoa2, pessoa3));
 
     }
 }

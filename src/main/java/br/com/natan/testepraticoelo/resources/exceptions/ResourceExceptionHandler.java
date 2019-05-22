@@ -1,4 +1,4 @@
-package br.com.natan.testepraticoelo.resources;
+package br.com.natan.testepraticoelo.resources.exceptions;
 
 import br.com.natan.testepraticoelo.services.exceptions.ObjectNotFoundException;
 import org.springframework.http.HttpStatus;

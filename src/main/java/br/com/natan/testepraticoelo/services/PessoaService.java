@@ -16,8 +16,13 @@ public class PessoaService {
 
     public Pessoa find(Integer id) {
         Optional<Pessoa> obj = repo.findById(id);
-        return obj.orElseThrow(()-> new ObjectNotFoundException(
+        return obj.orElseThrow(() -> new ObjectNotFoundException(
                 "Objeto não encontrado! Id: " + id + ", Tipo: " + Pessoa.class.getName()));
+    }
+
+    public Pessoa insert(Pessoa obj) {
+        obj.setId(null);
+        return repo.save(obj);
     }
 
 }

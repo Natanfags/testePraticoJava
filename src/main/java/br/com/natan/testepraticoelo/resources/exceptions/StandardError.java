@@ -1,4 +1,4 @@
-package br.com.natan.testepraticoelo.resources;
+package br.com.natan.testepraticoelo.resources.exceptions;
 
 import java.io.Serializable;
 
