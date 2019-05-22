@@ -31,8 +31,9 @@ public class PessoaService {
     }
 
     public Pessoa update(Pessoa obj) {
-        find(obj.getId());
-        return repo.save(obj);
+        Pessoa newObj = find(obj.getId());
+        updateData(newObj, obj);
+        return repo.save(newObj);
     }
 
     public void delete(Integer id) {
@@ -50,7 +51,12 @@ public class PessoaService {
     }
 
     public Pessoa fromDto(PessoaDto objDto) {
-        return new Pessoa(objDto.getId(), objDto.getNome());
+        return new Pessoa(objDto.getId(), null, objDto.getNome(), null);
+    }
+
+    private void updateData(Pessoa newObj, Pessoa obj) {
+        newObj.setId(obj.getId());
+        newObj.setNome(obj.getNome());
     }
 
 }

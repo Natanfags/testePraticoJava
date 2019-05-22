@@ -31,7 +31,7 @@ public class Pessoa implements Serializable {
 
     public Pessoa(Integer id, CodigoPessoa codigo, String nome, String cpf) {
         this.id = id;
-        this.codigo = codigo.getCod();
+        this.codigo = (codigo == null) ? null : codigo.getCod();
         this.nome = nome;
         this.cpf = cpf;
     }
