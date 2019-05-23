@@ -2,6 +2,7 @@ package br.com.natan.testepraticoelo.resources;
 
 import br.com.natan.testepraticoelo.domain.Pessoa;
 import br.com.natan.testepraticoelo.dto.PessoaDto;
+import br.com.natan.testepraticoelo.dto.PessoaNewDto;
 import br.com.natan.testepraticoelo.services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,7 +30,7 @@ public class PessoaResource {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> insert(@Valid @RequestBody PessoaDto objDto) {
+    public ResponseEntity<Void> insert(@Valid @RequestBody PessoaNewDto objDto) {
         Pessoa obj = service.fromDto(objDto);
         obj = service.insert(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()

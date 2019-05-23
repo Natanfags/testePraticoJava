@@ -1,7 +1,9 @@
 package br.com.natan.testepraticoelo.services;
 
 import br.com.natan.testepraticoelo.domain.Pessoa;
+import br.com.natan.testepraticoelo.domain.enums.CodigoPessoa;
 import br.com.natan.testepraticoelo.dto.PessoaDto;
+import br.com.natan.testepraticoelo.dto.PessoaNewDto;
 import br.com.natan.testepraticoelo.repositories.PessoaRepository;
 import br.com.natan.testepraticoelo.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +54,10 @@ public class PessoaService {
 
     public Pessoa fromDto(PessoaDto objDto) {
         return new Pessoa(objDto.getId(), null, objDto.getNome(), null);
+    }
+
+    public Pessoa fromDto(PessoaNewDto objDto) {
+        return new Pessoa(null, CodigoPessoa.toEnum(objDto.getCodigo()), objDto.getNome(), objDto.getCpf());
     }
 
     private void updateData(Pessoa newObj, Pessoa obj) {
