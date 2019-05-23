@@ -1,4 +1,4 @@
-package br.com.natan.testepraticoelo.resources;
+package br.com.natan.testepraticoelo.controller;
 
 import br.com.natan.testepraticoelo.domain.Pessoa;
 import br.com.natan.testepraticoelo.dto.PessoaDto;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/pessoas")
-public class PessoaResource {
+public class PessoaController {
 
     @Autowired
     private PessoaService service;

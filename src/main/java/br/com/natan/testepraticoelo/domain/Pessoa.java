@@ -29,11 +29,21 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
 
+    public Pessoa(Integer codigo, String nome, String cpf) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.cpf = cpf;
+    }
+
     public Pessoa(Integer id, CodigoPessoa codigo, String nome, String cpf) {
         this.id = id;
         this.codigo = (codigo == null) ? null : codigo.getCod();
         this.nome = nome;
         this.cpf = cpf;
+    }
+
+    public Pessoa(String nome) {
+        this.nome = nome;
     }
 
     public Integer getId() {

@@ -65,4 +65,11 @@ public class PessoaService {
         newObj.setNome(obj.getNome());
     }
 
+    public boolean existe(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        return true;
+    }
+
 }
